@@ -11,11 +11,198 @@
 */
 
 "use strict";
-!function (c) {
-    c(".collapse-box .collapse-button").toggleClick(function () { var t = this; !function (t) { var i = c(t).closest(".collapse-box"), a = c(i).find(".panel"), e = c(i).attr("data-height"), s = c(t).attr("data-height"); c(a).css("display", "block").css("height", ""); var n = c(a).height(); c(a).css("height", 0), isEmpty(s) || (n = s); var o = c(t).attr("data-time"); isEmpty(o) && (o = 500); isEmpty(e) || (c(a).css("height", e + "px"), c(a).addClass("no-gradient")); c(a).animate({ height: n }, parseInt(o, 10)) }(t); var i = c(t).attr("data-button-open-text"); isEmpty(i) || (c(t).attr("data-button-close-text", c(this).find("b").html()), setTimeout(function () { c(t).find("b").html(i) }, 500)) }, function () { var t = this; !function (t) { var i = c(t).closest(".collapse-box"), a = c(i).find(".panel"), e = c(i).attr("data-height"); isEmpty(e) || c(a).removeClass("no-gradient"); var s = c(this).attr("data-time"); isEmpty(s) && (s = 500); c(a).animate({ height: isEmpty(e) ? 0 : e }, parseInt(s, 10), function () { isEmpty(e) && (c(a).css("display", "none"), c(a).css("height", "")) }) }(t); var i = c(t).attr("data-button-close-text"); isEmpty(i) || setTimeout(function () { c(t).find("b").html(i) }, 500) }), c("body").on("click", ".accordion-list .list-group-item > a", function () { var t = c(this).closest(".accordion-list"), i = c(this).closest(".list-group-item"), a = c(t).attr("data-type"), e = c(t).attr("data-time"), s = c(t).attr("data-height"), n = c(t).find(".active-panel .panel"); if (c(t).find(".list-group-item").removeClass("active-panel"), isEmpty(a) && (a = ""), c(c(t).find(".panel")).each(function () { c(this).clearQueue() }), c(this).hasClass("active") || "block" == c(i).find(".panel").css("display")) { c(this).removeClass("active"); var o = c(i).find(".panel"); isEmpty(e) && (e = 500), c(o).animate({ height: 0 }, e, function () { c(o).css("display", "none").css("height", "") }) } else { var l = 0, h = c(t).find(".list-group-item > a"); c(h).each(function () { c(this).hasClass("active") && (l = 300) }), c(h).removeClass("active"), c(this).addClass("active"), c(i).addClass("active-panel"), "visible" == a ? c(c(i).find(".panel")).collapse({ milliseconds: e, height: s }) : (c(n).animate({ height: 0 }, l, function () { c(n).css("display", "none").css("height", "") }), "accordion" == a ? c(i).find(".panel").collapse({ milliseconds: e, height: s }) : c(n).promise().done(function () { c(i).find(".panel").collapse({ milliseconds: e, height: s }) })) } }), c.fn.collapse = function (t) { var i = "", a = ""; isEmpty(t) || (i = t.milliseconds, a = t.height), isEmpty(i) && (i = 500); var e = this; c(e).css("display", "block"); var s = c(e).height(); c(e).css("height", "0px"), isEmpty(a) || (s = a), c(e).animate({ height: s }, parseInt(i, 10)) }, c("body").on("click", ".tab-box .nav li", function (t) { var i = c(this).find("a").attr("href"); "#" == i && (i = null); var a = c(this).closest(".tab-box"), e = c(a).attr("data-tab-anima"); c(a).find("> .panel, > .panel-box .panel").removeClass("active"), c(a).find("> .nav li").removeClass("active"), c(this).addClass("active"); var s = c(a).find("> .panel:eq(" + c(this).index() + "), > .panel-box .panel:eq(" + c(this).index() + ")"); if (isEmpty(i) || (s = c(a).find(i)), c(s).addClass("active"), isEmpty(e) || (c(s).css("opacity", 0), c(s).showAnima(e)), c.isFunction(c.fn.initFlexSlider)) { var n = 0; c(s).find(".flexslider").each(function () { c(this).initFlexSlider(), n++ }), n && c(window).trigger("resize").trigger("scroll") } if (c.isFunction(c.fn.initIsotope) && c(s).find(".maso-list").each(function () { c(this).initIsotope() }), c.isFunction(c.fn.googleMap) && c(s).find(".google-map").each(function () { c(this).googleMap() }), c(this).closest(".mega-menu").length) return !1; t.preventDefault() }), c("body").on("click", "header .mega-tabs", function () { c(this).find(".nav-tabs li:first-child").addClass("active") }), c(".tab-box.left,.tab-box.right").each(function () { var t = c(this).find(".nav"), i = c(this).find(".panel-box"); c(i).outerHeight() < c(t).outerHeight() ? c(i).find(".panel").css("height", c(t).outerHeight() + "px") : c(t).css("height", c(i).find(".panel").outerHeight() + "px") }), c(".nav.nav-justified-v").each(function () { var t = c(this).find("li").length, i = c(this).find("li a"); c(i).css("height", c(this).outerHeight() / t + "px"), c(i).css("line-height", c(i).height() + "px") }), c("*[data-height].collapse-box").each(function () { var t = c(this).find(".panel"); c(t).css("height", c(this).attr("data-height") + "px"), c(t).show() }), c(".accordion-list[data-open]").each(function () {
-        var t = c(this).attr("data-open");
-        var tt = this;
-        setTimeout(function () {
-            c(tt).find(".list-group-item").eq(parseInt(t, 10) - 1).find("a").click()
-        }, 300); 
-      }) }(jQuery);
+(function ($) {
+    $('.collapse-box .collapse-button').toggleClick(function () {
+        var t = this;
+        openCollapse(t);
+        var open_text = $(t).attr("data-button-open-text");
+        if (!isEmpty(open_text)) {
+            $(t).attr("data-button-close-text", $(this).find("b").html());
+            setTimeout(function () {
+                $(t).find("b").html(open_text);
+            }, 500);
+        }
+    }, function () {
+        var t = this;
+        closeCollapse(t);
+        var close_text = $(t).attr("data-button-close-text");
+        if (!isEmpty(close_text)) {
+            setTimeout(function () {
+                $(t).find("b").html(close_text);
+            }, 500);
+        }
+    });
+    function closeCollapse(obj) {
+        var t = $(obj).closest(".collapse-box");
+        var tp = $(t).find(".panel");
+        var h = $(t).attr("data-height");
+        if (!isEmpty(h)) $(tp).removeClass("no-gradient");
+        var time = $(this).attr("data-time");
+        if (isEmpty(time)) time = 500;
+
+        $(tp).animate({
+            height: (isEmpty(h)) ? 0 : h
+        }, parseInt(time, 10), function () {
+            if (isEmpty(h)) {
+                $(tp).css("display", "none");
+                $(tp).css("height", "");
+            }
+        });
+    }
+    function openCollapse(obj) {
+        var t = $(obj).closest(".collapse-box");
+        var tp = $(t).find(".panel");
+        var h = $(t).attr("data-height");
+        var ah = $(obj).attr("data-height");
+
+        $(tp).css("display", "block").css("height", "");
+        var final_h = $(tp).height();
+        $(tp).css("height", 0);
+
+        if (!isEmpty(ah)) final_h = ah;
+
+        var time = $(obj).attr("data-time");
+        if (isEmpty(time)) time = 500;
+        if (!isEmpty(h)) {
+            $(tp).css("height", h + "px");
+            $(tp).addClass("no-gradient");
+        }
+        $(tp).animate({
+            height: final_h
+        }, parseInt(time, 10));
+    }
+    $("body").on("click", ".accordion-list .list-group-item > a", function () {
+        var t = $(this).closest(".accordion-list");
+        var it = $(this).closest(".list-group-item");
+        var dt = $(t).attr("data-type");
+        var time = $(t).attr("data-time");
+        var he = $(t).attr("data-height");
+        var act = $(t).find(".active-panel .panel");
+        $(t).find(".list-group-item").removeClass("active-panel");
+
+        if (isEmpty(dt)) dt = "";
+        $($(t).find(".panel")).each(function () {
+            $(this).clearQueue();
+        });
+        if ($(this).hasClass("active") || $(it).find(".panel").css("display") == "block") {
+            $(this).removeClass("active");
+
+            var tb = $(it).find(".panel");
+            if (isEmpty(time)) time = 500;
+            $(tb).animate({
+                height: 0
+            }, time, function () { $(tb).css("display", "none").css("height", ""); });
+        } else {
+            var d = 0;
+            var a = $(t).find(".list-group-item > a");
+            $(a).each(function () {
+                if ($(this).hasClass("active")) d = 300;
+            });
+            $(a).removeClass("active");
+            $(this).addClass("active");
+            $(it).addClass("active-panel");
+
+            if (dt == "visible") $($(it).find(".panel")).collapse({ milliseconds: time, height: he });
+            else {
+                $(act).animate({
+                    height: 0
+                }, d, function () {
+                    $(act).css("display", "none").css("height", "");
+                });
+                if (dt == "accordion") {
+                    $(it).find(".panel").collapse({ milliseconds: time, height: he });
+                } else {
+                    $(act).promise().done(function () {
+                        $(it).find(".panel").collapse({ milliseconds: time, height: he });
+                    });
+                }
+            }
+        }
+    });
+    $.fn.collapse = function (attr) {
+        var time = "";
+        var height = "";
+        if (!isEmpty(attr)) {
+            time = attr["milliseconds"];
+            height = attr["height"];
+        }
+        if (isEmpty(time)) time = 500;
+        var t = this;
+        $(t).css("display", "block");
+        var h = $(t).height();
+        $(t).css("height", "0px");
+        if (!isEmpty(height)) h = height;
+
+        $(t).animate({
+            height: h
+        }, parseInt(time, 10));
+    };
+    $("body").on("click", ".tab-box .nav li", function (e) {
+        var target = $(this).find("a").attr("href");
+        if (target == "#") target = null;
+        var p = $(this).closest(".tab-box");
+        var anima = $(p).attr("data-tab-anima");
+        $(p).find("> .panel, > .panel-box .panel").removeClass("active");
+        $(p).find("> .nav li").removeClass("active");
+        $(this).addClass("active");
+
+        var t = $(p).find("> .panel:eq(" + $(this).index() + "), > .panel-box .panel:eq(" + $(this).index() + ")");
+        if (!isEmpty(target)) t = $(p).find(target);
+
+        $(t).addClass("active");
+        if (!isEmpty(anima)) {
+            $(t).css("opacity", 0);
+            $(t).showAnima(anima);
+        }
+        if ($.isFunction($.fn.initFlexSlider)) {
+            var i = 0;
+            $(t).find(".flexslider").each(function () {
+                $(this).initFlexSlider();
+                i++;
+            });
+            if (i) $(window).trigger('resize').trigger('scroll');
+        }
+        if ($.isFunction($.fn.initIsotope)) {
+            $(t).find('.maso-list').each(function () {
+                $(this).initIsotope();
+            });
+        }
+        if ($.isFunction($.fn.googleMap)) {
+            $(t).find('.google-map').each(function () {
+                $(this).googleMap();
+            });
+        }
+        if ($(this).closest(".mega-menu").length) return false;
+        e.preventDefault();
+    });
+    $("body").on("click", "header .mega-tabs", function () {
+        $(this).find(".nav-tabs li:first-child").addClass("active");
+    });
+
+    $(".tab-box.left,.tab-box.right").each(function () {
+        var t = $(this).find(".nav");
+        var p = $(this).find(".panel-box");
+
+        if ($(p).outerHeight() < $(t).outerHeight()) $(p).find(".panel").css("height", $(t).outerHeight() + "px");
+        else $(t).css("height", $(p).find(".panel").outerHeight() + "px");
+    });
+    $(".nav.nav-justified-v").each(function () {
+        var count_m = $(this).find("li").length;
+        var a = $(this).find("li a");
+        $(a).css("height", $(this).outerHeight() / count_m + "px");
+        $(a).css("line-height", $(a).height() + "px")
+    });
+
+    $("*[data-height].collapse-box").each(function () {
+        var t = $(this).find(".panel");
+        $(t).css("height", $(this).attr("data-height") + "px");
+        $(t).show();
+    });
+
+    $(".accordion-list[data-open]").each(function () {
+        var index = $(this).attr("data-open");
+        $(this).find('.list-group-item').eq(parseInt(index, 10) - 1).find("a").click();
+    });
+}(jQuery));
+
+
