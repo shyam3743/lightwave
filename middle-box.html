@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu icons | Components | Lightflow</title>
-    <meta name="description" content="Menu with left icons, based on CSS/HTML and FontAwesome.">
+    <title>Menu middle box | Components | Lightflow</title>
+    <meta name="description" content="Menu with big box in middle. The classic dropdown menu with a big box on center.">
     <link rel="stylesheet" href="../../../HTWF/scripts/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../../HTWF/style.css">
     <link rel="stylesheet" href="../../../HTWF/scripts/flexslider/flexslider.css">
@@ -19,20 +19,57 @@
 </head>
 <body>
     <div id="preloader"></div>
-    <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
-        <div class="navbar navbar-default icon-menu navbar-fixed-top  mega-menu-fullwidth" role="navigation">
-            <div class="navbar navbar-main">
+    <header class="fixed-top" data-menu-anima="fade-in">
+        <div class="navbar navbar-default navbar-fixed-top mega-menu-fullwidth" role="navigation">
+            <div class="navbar-mini scroll-hide">
+                <div class="container">
+                    <div class="nav navbar-nav navbar-left">
+                        <span><i class="im-phone-2"></i>+1-23-4226789</span>
+                        <hr />
+                        <span><i class="im-envelope"></i>hello@example.com</span>
+                    </div>
+                    <div class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav lan-menu">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="../../../images/en.png" alt="lan" />EN <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><img src="../../../images/it.png" alt="lan" />IT</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">GO</button>
+                                </span>
+                            </div>
+                        </form>
+                        <div class="minisocial-group">
+                            <a target="_blank" href="#"><i class="fa fa-facebook first"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-youtube"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-main middle-box-menu">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="../../index.html"><img src="../../../images/logo-margins.png" alt="logo"></a>
+                        <a class="navbar-brand" href="../../index.html"><img src="../../../images/logo.png" alt="logo"></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="im-home"></i> Home <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Home <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li><a href="../../index-worker.html">Worker</a></li>
                                     <li><a href="../../index-industry.html">Industry</a></li>
@@ -43,7 +80,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="im-film-board"></i> Pages <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Pages <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li class="dropdown dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company</a>
@@ -84,7 +121,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="im-calendar-4"></i> Projects <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Projects <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li><a href="../../projects-1.html">Projects one</a></li>
                                     <li><a href="../../projects-2.html">Projects two</a></li>
@@ -99,8 +136,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="im-hand-touch"></i> Blog <span class="caret"></span></a>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Blog <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li><a href="../../blog-classic.html">Classic</a></li>
                                     <li><a href="../../blog-grid.html">Grid</a></li>
@@ -116,7 +153,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown mega-dropdown mega-tabs">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="im-road-2"></i> Elements <span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Elements <span class="caret"></span></a>
                                 <div class="mega-menu dropdown-menu multi-level row bg-menu">
                                     <div class="tab-box" data-tab-anima="fade-in">
                                         <ul class="nav nav-tabs">
@@ -241,7 +278,42 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="nav navbar-nav navbar-right">
+                    </div>
+                </div>
+                <div class="container box-menu-inner">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="icon-box">
+                                <div class="icon-box-cell">
+                                    <i class="im-phone text-xl"></i>
+                                </div>
+                                <div class="icon-box-cell">
+                                    <label class="text-s">1-700-(568-852)</label>
+                                    <p class="text-xs">We're on call</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="icon-box">
+                                <div class="icon-box-cell">
+                                    <i class="im-calendar-3 text-xl"></i>
+                                </div>
+                                <div class="icon-box-cell">
+                                    <label class="text-s">Mon - Fri 08:00 - 20:00</label>
+                                    <p class="text-xs">Operating Hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="icon-box">
+                                <div class="icon-box-cell">
+                                    <i class=" im-envelope-2 text-xl"></i>
+                                </div>
+                                <div class="icon-box-cell">
+                                    <label class="text-s">hello@example.com</label>
+                                    <p class="text-xs">Write To Us</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -250,10 +322,11 @@
     </header>
     <div class="header-base">
         <div class="container">
+            <hr class="space l" />
             <div class="row">
                 <div class="col-md-9">
                     <div class="title-base text-left">
-                        <h1>Menu icons</h1>
+                        <h1>Menu middle box</h1>
                         <p>This template come with lot of innovative features and an awesome and extensive documentation ready to be used to build your website.</p>
                     </div>
                 </div>
@@ -293,8 +366,8 @@
                             <ul class="side-menu">
                                 <li><a href="../../features/menus/middle-logo.html">Menu middle logo</a></li>
                                 <li><a href="../../features/menus/middle-logo-top.html">Menu middle logo top</a></li>
-                                <li><a href="../../features/menus/middle-box.html">Menu middle box</a></li>
-                                <li class="active"><a href="../../features/menus/icons.html">Menu icons</a></li>
+                                <li class="active"><a href="../../features/menus/middle-box.html">Menu middle box</a></li>
+                                <li><a href="../../features/menus/icons.html">Menu icons</a></li>
                                 <li><a href="../../features/menus/icons-top.html">Menu icons top</a></li>
                             </ul>
                         </nav>

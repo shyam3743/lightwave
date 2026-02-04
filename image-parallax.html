@@ -7,32 +7,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu icons | Components | Lightflow</title>
-    <meta name="description" content="Menu with left icons, based on CSS/HTML and FontAwesome.">
+    <title>Title image parallax | Components | Lightflow</title>
+    <meta name="description" content="Background image parallax title for build modern and awesome HTML pages.">
     <link rel="stylesheet" href="../../../HTWF/scripts/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../../HTWF/style.css">
     <link rel="stylesheet" href="../../../HTWF/scripts/flexslider/flexslider.css">
     <link rel="stylesheet" href="../../../HTWF/css/content-box.css">
     <link rel="stylesheet" href="../../../HTWF/css/components.css">
     <link rel="stylesheet" href="../../../HTWF/css/animations.css">
-    <link rel="icon" href="../../../images/favicon.png"><link rel="stylesheet" href="../../../skin.css">
+    <link rel="stylesheet" href="../../../skin.css">
+    <link rel="icon" href="../../../images/favicon.png">
 </head>
 <body>
     <div id="preloader"></div>
-    <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
-        <div class="navbar navbar-default icon-menu navbar-fixed-top  mega-menu-fullwidth" role="navigation">
-            <div class="navbar navbar-main">
+    <header class="fixed-top scroll-change logo-left" data-menu-height="139">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-main navbar-middle">
                 <div class="container">
+                    <div class="scroll-hide">
+                        <div class="container">
+                            <a class="navbar-brand center" href="../../index.html">
+                                <img class="logo-default" src="../../../images/logo.png" alt="logo" />
+                                <img class="logo-retina" src="../../../images/logo-retina.png" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
                     <div class="navbar-header">
+                        <a class="navbar-brand" href="../../index.html">
+                            <img class="logo-default" src="../../../images/logo.png" alt="logo" />
+                            <img class="logo-retina" src="../../../images/logo-retina.png" alt="logo" />
+                        </a>
                         <button type="button" class="navbar-toggle">
                             <i class="fa fa-bars"></i>
                         </button>
-                        <a class="navbar-brand" href="../../index.html"><img src="../../../images/logo-margins.png" alt="logo"></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="im-home"></i> Home <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Home <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li><a href="../../index-worker.html">Worker</a></li>
                                     <li><a href="../../index-industry.html">Industry</a></li>
@@ -43,7 +55,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="im-film-board"></i> Pages <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Pages <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li class="dropdown dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company</a>
@@ -84,7 +96,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="im-calendar-4"></i> Projects <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Projects <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li><a href="../../projects-1.html">Projects one</a></li>
                                     <li><a href="../../projects-2.html">Projects two</a></li>
@@ -99,8 +111,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="im-hand-touch"></i> Blog <span class="caret"></span></a>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Blog <span class="caret"></span></a>
                                 <ul class="dropdown-menu multi-level">
                                     <li><a href="../../blog-classic.html">Classic</a></li>
                                     <li><a href="../../blog-grid.html">Grid</a></li>
@@ -116,7 +128,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown mega-dropdown mega-tabs">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="im-road-2"></i> Elements <span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Elements <span class="caret"></span></a>
                                 <div class="mega-menu dropdown-menu multi-level row bg-menu">
                                     <div class="tab-box" data-tab-anima="fade-in">
                                         <ul class="nav nav-tabs">
@@ -242,28 +254,39 @@
                             </li>
                         </ul>
                         <div class="nav navbar-nav navbar-right">
+                            <div class="custom-area">
+                                <a href="../../contacts-1.html" class="btn btn-sm">Get in touch</a>
+                            </div>
+                            <form class="navbar-form" role="search">
+                                <div class="search-box-menu">
+                                    <div class="search-box scrolldown">
+                                        <input type="text" class="form-control" placeholder="Search for...">
+                                    </div>
+                                    <button type="button" class="btn btn-default btn-search">
+                                        <span class="fa fa-search"></span>
+                                    </button>
+                                </div>
+                            </form>
+                            <ul class="nav navbar-nav lan-menu">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">EN</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a>IT</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <div class="header-base">
+    <div class="header-title white" data-parallax="scroll" data-position="top" data-natural-height="900" data-natural-width="1920" data-image-src="../../../images/hd-13.jpg">
         <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="title-base text-left">
-                        <h1>Menu icons</h1>
-                        <p>This template come with lot of innovative features and an awesome and extensive documentation ready to be used to build your website.</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <ol class="breadcrumb b white">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Features</a></li>
-                        <li class="active">Menu</li>
-                    </ol>
-                </div>
+            <div class="title-base">
+                <hr class="anima" />
+                <h1>Title image parallax</h1>
+                <p>Things don't have to change the world to be important</p>
             </div>
         </div>
     </div>
@@ -271,44 +294,59 @@
         <div class="container content">
             <div class="row">
                 <div class="col-md-3">
-                    <h5>MENU</h5>
+                    <h5>IMAGE</h5>
                     <hr class="space m" />
                     <aside class="sidebar mi-menu">
                         <nav class="sidebar-nav">
                             <ul class="side-menu">
-                                <li><a href="../../features/menus/classic.html">Menu classic</a></li>
-                                <li><a href="../../features/menus/classic-transparent.html">Menu classic transparent</a></li>
-                                <li><a href="../../features/menus/big-logo.html">Menu big logo</a></li>
-                                <li><a href="../../features/menus/subline.html">Menu subline</a></li>
-                                <li><a href="../../features/menus/subtitle.html">Menu subtitle</a></li>
+                                <li><a href="../../features/titles/image.html">Image background</a></li>
+                                <li><a href="../../features/titles/image-fullscreen.html">Image full-screen</a></li>
+                                <li><a href="../../features/titles/image-fullscreen-parallax.html">Image full-screen parallax</a></li>
+                                <li class="active"><a href="../../features/titles/image-parallax.html">Image parallax</a></li>
+                                <li><a href="../../features/titles/image-parallax-ken-burn.html">Image parallax ken-burn</a></li>
                             </ul>
                         </nav>
                     </aside>
                 </div>
                 <div class="col-md-3">
-                    <h5>MENU</h5>
+                    <h5>VIDEO</h5>
                     <hr class="space m" />
                     <aside class="sidebar mi-menu">
                         <nav class="sidebar-nav">
                             <ul class="side-menu">
-                                <li><a href="../../features/menus/middle-logo.html">Menu middle logo</a></li>
-                                <li><a href="../../features/menus/middle-logo-top.html">Menu middle logo top</a></li>
-                                <li><a href="../../features/menus/middle-box.html">Menu middle box</a></li>
-                                <li class="active"><a href="../../features/menus/icons.html">Menu icons</a></li>
-                                <li><a href="../../features/menus/icons-top.html">Menu icons top</a></li>
+                                <li><a href="../../features/titles/video-mp4.html">Video background MP4</a></li>
+                                <li><a href="../../features/titles/video-youtube.html">Video background Youtube</a></li>
+                                <li><a href="../../features/titles/video-fullscreen.html">Video full-screen</a></li>
+                                <li><a href="../../features/titles/video-fullscreen-parallax.html">Video full-screen parallax</a></li>
+                                <li><a href="../../features/titles/video-parallax.html">Video parallax</a></li>
                             </ul>
                         </nav>
                     </aside>
                 </div>
                 <div class="col-md-3">
-                    <h5>SIDE MENU</h5>
+                    <h5>SLIDER</h5>
                     <hr class="space m" />
                     <aside class="sidebar mi-menu">
                         <nav class="sidebar-nav">
                             <ul class="side-menu">
-                                <li><a href="../../features/menus/side.html">Side classic</a></li>
-                                <li><a href="../../features/menus/side-lateral.html">Side lateral</a></li>
-                                <li><a href="../../features/menus/side-simple.html">Side simple</a></li>
+                                <li><a href="../../features/titles/slider.html">Slider background</a></li>
+                                <li><a href="../../features/titles/slider-fullscreen.html">Slider full-screen</a></li>
+                                <li><a href="../../features/titles/slider-fullscreen-parallax.html">Slider full-screen parallax</a></li>
+                                <li><a href="../../features/titles/slider-parallax.html">Slider parallax</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+                <div class="col-md-3">
+                    <h5>OTHER</h5>
+                    <hr class="space m" />
+                    <aside class="sidebar mi-menu">
+                        <nav class="sidebar-nav">
+                            <ul class="side-menu">
+                                <li><a href="../../features/titles/base-1.html">Title base 1</a></li>
+                                <li><a href="../../features/titles/base-2.html">Title base 2</a></li>
+                                <li><a href="../../features/titles/animation.html">Animation background</a></li>
+                                <li><a href="../../features/titles/animation-parallax.html">Animation parallax</a></li>
                             </ul>
                         </nav>
                     </aside>
@@ -372,10 +410,10 @@
         <script src="../../../HTWF/scripts/jquery.min.js"></script>
         <script src="../../../HTWF/scripts/script.js"></script>
         <link rel="stylesheet" href="../../../HTWF/scripts/iconsmind/line-icons.min.css">
+        <script src="../../../HTWF/scripts/parallax.min.js"></script>
         <script src="../../../HTWF/scripts/bootstrap/js/bootstrap.min.js"></script>
         <script src="../../../HTWF/scripts/flexslider/jquery.flexslider-min.js"></script>
         <script src="../../../HTWF/scripts/jquery.tab-accordion.js"></script>
-        <script src="../../../HTWF/scripts/parallax.min.js"></script>
     </footer>
 </body>
 </html>
